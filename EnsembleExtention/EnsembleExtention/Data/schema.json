@@ -1,57 +1,132 @@
 {
-  "schema": [
-    {
-      "category": "status",
-      "isBoolean": true,
-      "directionType": "undirected",
-      "types": ["grieving", "happy", "lonely", "sad", "injured", "injured", "fatigued", "dead", "exhausted", "recovering", "resting", "expelled"],
-      "duration": 6,
-      "defaultValue": false,
-      "actionable": false
-    },
-    {
-      "category": "network",
-      "isBoolean": false,
-      "directionType": "directed",
-      "types": ["affinity", "trust"],
-      "defaultValue": 50,
-      "minValue": 0,
-      "maxValue": 100,
-      "actionable": true
-    },
-    {
-      "category": "relationship",
-      "isBoolean": true,
-      "directionType": "reciprocal",
-      "types": ["friends", "involved with", "comrades"],
-      "defaultValue": false,
-      "actionable": true
-    },
-    {
-      "category": "directedStatus",
-      "isBoolean": true,
-      "directionType": "directed",
-      "types": ["attracted to", "worried about", "upset with", "hates"],
-      "duration": 20,
-      "defaultValue": false,
-      "actionable": false
-    },
-    {
-      "category": "trait",
-      "isBoolean": true,
-      "directionType": "undirected",
-      "types": ["liked movies", "liked sports", "liked music", "has a great smile", "jealous", "trusting", "has a kind face"],
-      "defaultValue": false,
-      "actionable": false
-    },
-    {
-      "category": "socialRecordLabel",
-      "types": ["romanticfailure", "romantic advance", "embarrassing", "newlabel"],
-      "isBoolean": true,
-      "directionType": "directed",
-      "defaultValue": false,
-      "actionable": false,
-      "duration": 0
-    }
-  ]
+	"schema": [
+		{
+			"actionable": false,
+			"directionType": "undirected",
+			"isBoolean": true,
+			"cloneEachTimeStep": true,
+			"category": "Anyone",
+			"types": [
+				"anyone"
+			],
+			"defaultValue": true
+		},
+		{
+			"actionable": true,
+			"directionType": "undirected",
+			"isBoolean": false,
+			"cloneEachTimeStep": true,
+			"category": "power",
+			"types": [
+				"power",
+				"wealth"
+			],
+			"defaultValue": 0,
+			"maxValue": 1000,
+			"minValue": 0
+		},
+		{
+			"actionable": true,
+			"directionType": "undirected",
+			"isBoolean": true,
+			"cloneEachTimeStep": true,
+			"category": "reputation",
+			"types": [
+				"default type"
+			],
+			"defaultValue": false
+		},
+		{
+			"actionable": true,
+			"directionType": "directed",
+			"isBoolean": false,
+			"cloneEachTimeStep": true,
+			"category": "relation",
+			"types": [
+				"enemy",
+				"rival",
+				"friend",
+				"ally",
+				"favor",
+				"trust"
+			],
+			"defaultValue": 0,
+			"maxValue": 100,
+			"minValue": 0
+		},
+		{
+			"actionable": false,
+			"directionType": "undirected",
+			"isBoolean": true,
+			"cloneEachTimeStep": true,
+			"category": "Social position",
+			"types": [
+				"baron",
+				"duke",
+				"military",
+				"royalty",
+				"emperor",
+				"clergy"
+			],
+			"defaultValue": false
+		},
+		{
+			"actionable": false,
+			"directionType": "directed",
+			"isBoolean": false,
+			"cloneEachTimeStep": true,
+			"category": "Traits",
+			"types": [
+				"honesty",
+				"greed",
+				"ambition",
+				"ethics",
+				"trust",
+				"likability",
+				"loyal",
+				"orator"
+			],
+			"defaultValue": 0,
+			"maxValue": 10,
+			"minValue": -10
+		},
+		{
+			"actionable": false,
+			"directionType": "reciprocal",
+			"isBoolean": true,
+			"cloneEachTimeStep": true,
+			"category": "Familial Relation",
+			"types": [
+				"close familiy",
+				"extended familiy"
+			],
+			"defaultValue": false
+		},
+		{
+			"actionable": false,
+			"directionType": "undirected",
+			"isBoolean": true,
+			"cloneEachTimeStep": true,
+			"duration": 0,
+			"category": "socialRecordLabelUndirected",
+			"types": [
+				"slandered",
+				"exposed"
+			],
+			"defaultValue": false
+		},
+		{
+			"actionable": false,
+			"directionType": "directed",
+			"isBoolean": true,
+			"cloneEachTimeStep": true,
+			"duration": 1,
+			"category": "socialRecordLabel",
+			"types": [
+				"slandered me",
+				"exposed me"
+			],
+			"defaultValue": false
+		}
+	]
 }
