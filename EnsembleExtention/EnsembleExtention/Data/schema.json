@@ -73,26 +73,6 @@
 		},
 		{
 			"actionable": false,
-			"directionType": "directed",
-			"isBoolean": false,
-			"cloneEachTimeStep": true,
-			"category": "Traits",
-			"types": [
-				"honesty",
-				"greed",
-				"ambition",
-				"ethics",
-				"trust",
-				"likability",
-				"loyal",
-				"orator"
-			],
-			"defaultValue": 0,
-			"maxValue": 10,
-			"minValue": -10
-		},
-		{
-			"actionable": false,
 			"directionType": "reciprocal",
 			"isBoolean": true,
 			"cloneEachTimeStep": true,
@@ -128,6 +108,26 @@
 				"exposed me"
 			],
 			"defaultValue": false
+		},
+		{
+			"actionable": false,
+			"directionType": "undirected",
+			"isBoolean": false,
+			"cloneEachTimeStep": true,
+			"category": "Traits",
+			"types": [
+				"honesty",
+				"greed",
+				"ambition",
+				"ethics",
+				"trust",
+				"likability",
+				"loyal",
+				"orator"
+			],
+			"defaultValue": 0,
+			"maxValue": 10,
+			"minValue": -10
 		}
 	]
 }

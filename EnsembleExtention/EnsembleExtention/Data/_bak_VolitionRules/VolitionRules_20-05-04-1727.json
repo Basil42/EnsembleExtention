@@ -47,6 +47,31 @@
 			"origin": "VolitionRules",
 			"id": "volitionRules_2",
 			"type": "volition"
+		},
+		{
+			"name": "New Volition Rule",
+			"conditions": [
+				{
+					"category": "Traits",
+					"type": "ambition",
+					"first": "someone",
+					"value": 0,
+					"operator": ">",
+					"second": "other"
+				}
+			],
+			"effects": [
+				{
+					"category": "power",
+					"type": "power",
+					"first": "someone",
+					"weight": 5,
+					"intentType": true
+				}
+			],
+			"origin": "VolitionRules",
+			"id": "volitionRules_3",
+			"type": "volition"
 		}
 	]
 }
