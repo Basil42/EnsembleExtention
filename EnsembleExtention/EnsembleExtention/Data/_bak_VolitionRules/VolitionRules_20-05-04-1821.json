@@ -313,12 +313,11 @@
 			],
 			"effects": [
 				{
-					"category": "Intent",
-					"type": "attack",
+					"category": "power",
+					"type": "power",
 					"first": "someone",
-					"weight": -10,
-					"intentType": true,
-					"second": "other"
+					"weight": 5,
+					"intentType": true
 				}
 			],
 			"origin": "VolitionRules",

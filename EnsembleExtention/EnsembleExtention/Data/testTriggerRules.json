@@ -1,0 +1,72 @@
+{
+	"fileName": "testTriggerRules",
+	"type": "trigger",
+	"rules": [
+		{
+			"name": "people trust their good friends",
+			"conditions": [
+				{
+					"category": "relation",
+					"type": "friend",
+					"first": "someone",
+					"value": 50,
+					"operator": ">",
+					"second": "other"
+				},
+				{
+					"category": "relation",
+					"type": "trust",
+					"first": "someone",
+					"value": 50,
+					"operator": "<",
+					"second": "other"
+				}
+			],
+			"effects": [
+				{
+					"category": "relation",
+					"type": "trust",
+					"first": "someone",
+					"value": 50,
+					"second": "other"
+				}
+			],
+			"origin": "testTriggerRules",
+			"id": "triggerRules_13",
+			"type": "trigger"
+		},
+		{
+			"name": "People distrust their ennemies",
+			"conditions": [
+				{
+					"category": "relation",
+					"type": "enemy",
+					"first": "someone",
+					"value": 0,
+					"operator": ">",
+					"second": "other"
+				},
+				{
+					"category": "relation",
+					"type": "trust",
+					"first": "someone",
+					"value": 25,
+					"operator": ">",
+					"second": "other"
+				}
+			],
+			"effects": [
+				{
+					"category": "relation",
+					"type": "trust",
+					"first": "someone",
+					"value": 25,
+					"second": "other"
+				}
+			],
+			"origin": "testTriggerRules",
+			"id": "triggerRules_14",
+			"type": "trigger"
+		}
+	]
+}

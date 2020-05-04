@@ -1,0 +1,75 @@
+{
+	"fileName": "VolitionRules",
+	"type": "volition",
+	"rules": [
+		{
+			"name": "Everyone wants more power",
+			"conditions": [
+				{
+					"category": "Anyone",
+					"type": "anyone",
+					"first": "someone",
+					"value": true
+				}
+			],
+			"effects": [
+				{
+					"category": "power",
+					"type": "power",
+					"first": "someone",
+					"weight": 5,
+					"intentType": true
+				}
+			],
+			"origin": "VolitionRules",
+			"id": "volitionRules_1",
+			"type": "volition"
+		},
+		{
+			"name": "Everybody want wealth",
+			"conditions": [
+				{
+					"category": "Anyone",
+					"type": "anyone",
+					"first": "someone",
+					"value": true
+				}
+			],
+			"effects": [
+				{
+					"category": "power",
+					"type": "wealth",
+					"first": "someone",
+					"weight": 5,
+					"intentType": true
+				}
+			],
+			"origin": "VolitionRules",
+			"id": "volitionRules_2",
+			"type": "volition"
+		},
+		{
+			"name": "New Volition Rule",
+			"conditions": [
+				{
+					"category": "Anyone",
+					"type": "anyone",
+					"first": "someone",
+					"value": true
+				}
+			],
+			"effects": [
+				{
+					"category": "power",
+					"type": "power",
+					"first": "someone",
+					"weight": 5,
+					"intentType": true
+				}
+			],
+			"origin": "VolitionRules",
+			"id": "volitionRules_3",
+			"type": "volition"
+		}
+	]
+}

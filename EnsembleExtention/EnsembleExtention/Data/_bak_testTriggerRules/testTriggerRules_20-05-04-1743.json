@@ -1,0 +1,28 @@
+{
+	"fileName": "testTriggerRules",
+	"type": "trigger",
+	"rules": [
+		{
+			"name": "New Trigger Rule",
+			"conditions": [
+				{
+					"category": "Anyone",
+					"type": "anyone",
+					"first": "someone",
+					"value": true
+				}
+			],
+			"effects": [
+				{
+					"category": "power",
+					"type": "power",
+					"first": "someone",
+					"value": 0
+				}
+			],
+			"origin": "testTriggerRules",
+			"id": "triggerRules_10",
+			"type": "trigger"
+		}
+	]
+}

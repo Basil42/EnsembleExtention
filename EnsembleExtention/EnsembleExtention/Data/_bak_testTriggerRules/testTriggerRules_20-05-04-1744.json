@@ -1,0 +1,44 @@
+{
+	"fileName": "testTriggerRules",
+	"type": "trigger",
+	"rules": [
+		{
+			"name": "People don't want their rivals to have more power than them",
+			"conditions": [
+				{
+					"category": "relation",
+					"type": "rival",
+					"first": "someone",
+					"value": 25,
+					"operator": ">",
+					"second": "rival"
+				},
+				{
+					"category": "power",
+					"type": "power",
+					"first": "someone",
+					"value": 0,
+					"operator": ">"
+				},
+				{
+					"category": "power",
+					"type": "power",
+					"first": "rival",
+					"value": 0,
+					"operator": ">"
+				}
+			],
+			"effects": [
+				{
+					"category": "power",
+					"type": "power",
+					"first": "someone",
+					"value": 0
+				}
+			],
+			"origin": "testTriggerRules",
+			"id": "triggerRules_10",
+			"type": "trigger"
+		}
+	]
+}

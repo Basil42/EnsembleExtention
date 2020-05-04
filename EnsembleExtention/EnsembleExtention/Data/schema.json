@@ -128,6 +128,20 @@
 			"defaultValue": 0,
 			"maxValue": 10,
 			"minValue": -10
+		},
+		{
+			"actionable": true,
+			"directionType": "directed",
+			"isBoolean": true,
+			"cloneEachTimeStep": true,
+			"category": "Intent",
+			"types": [
+				"hinder",
+				"help",
+				"attack",
+				"favor"
+			],
+			"defaultValue": false
 		}
 	]
 }
