@@ -35,9 +35,9 @@ namespace JintinterfaceTest
                 "../../Data/actions.json",
                 "../../Data/history.json");
             BindApi(engine);
-            
 
 
+            var vol =CalculateVolitions(GetCharacters());
 
 
         }
