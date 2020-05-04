@@ -19,7 +19,8 @@
 			"category": "power",
 			"types": [
 				"power",
-				"wealth"
+				"wealth",
+				"popularity"
 			],
 			"defaultValue": 0,
 			"maxValue": 1000,
