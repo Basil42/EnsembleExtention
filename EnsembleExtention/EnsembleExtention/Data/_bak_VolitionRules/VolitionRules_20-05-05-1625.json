@@ -172,11 +172,10 @@
 			"name": "The greediest will stop at nothing to get wealth",
 			"conditions": [
 				{
-					"category": "Traits",
-					"type": "greed",
+					"category": "Anyone",
+					"type": "anyone",
 					"first": "someone",
-					"value": 9,
-					"operator": ">"
+					"value": true
 				}
 			],
 			"effects": [
@@ -190,6 +189,29 @@
 			],
 			"origin": "VolitionRules",
 			"id": "volitionRules_10",
+			"type": "volition"
+		},
+		{
+			"name": "People ",
+			"conditions": [
+				{
+					"category": "Anyone",
+					"type": "anyone",
+					"first": "someone",
+					"value": true
+				}
+			],
+			"effects": [
+				{
+					"category": "power",
+					"type": "power",
+					"first": "someone",
+					"weight": 5,
+					"intentType": true
+				}
+			],
+			"origin": "VolitionRules",
+			"id": "volitionRules_11",
 			"type": "volition"
 		}
 	]

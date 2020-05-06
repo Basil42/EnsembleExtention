@@ -1,4 +1,130 @@
 {
-  "history": []
-    
-}
+  "history": [
+    {
+      "pos": 0,
+      "comment": "Al traits ",
+      "data": [
+        {
+          "category": "Traits",
+          "type": "ambition",
+          "first": "al",
+          "value": 7
+        },
+        {
+          "category": "Traits",
+          "type": "greed",
+          "first": "al",
+          "value": 3
+        },
+        {
+          "category": "Traits",
+          "type": "honesty",
+          "first": "al",
+          "value": -2
+        },
+        {
+          "category": "Traits",
+          "type": "trust",
+          "first": "al",
+          "value": 4
+        },
+        {
+          "category": "Traits",
+          "type": "loyal",
+          "first": "al",
+          "value": 3
+        },
+        {
+          "category": "power",
+          "type": "power",
+          "first": "al",
+          "value": 50
+        },
+        {
+          "category": "power",
+          "type": "wealth",
+          "first": "al",
+          "value": 50
+        },
+        {
+          "category": "power",
+          "type": "popularity",
+          "first": "al",
+          "value": 10
+        },
+        {
+          "category": "Traits",
+          "type": "ethics",
+          "first": "al",
+          "value":  -4
+        }
+      ]
+    },
+    {
+      "pos": 0,
+      "comment": "Bob traits",
+      "data": [
+        {
+          "category": "Traits",
+          "type": "ambition",
+          "first": "bob",
+          "value": 0
+        },
+        {
+          "category": "Traits",
+          "type": "honesty",
+          "first": "bob",
+          "value": 7
+        },
+        {
+          "category": "Traits",
+          "type": "greed",
+          "first": "bob",
+          "value": 4
+        },
+        {
+          "category": "Traits",
+          "type": "ethics",
+          "first": "bob",
+          "value": 7
+        },
+        {
+          "category": "Traits",
+          "type": "trust",
+          "first": "bob",
+          "value": 7
+        },
+        {
+          "category": "Traits",
+          "type": "likability",
+          "first": "bob",
+          "value": 10
+        },
+        {
+          "category": "Traits",
+          "type": "loyal",
+          "first": "bob",
+          "value": 4
+        },
+        {
+          "category": "power",
+          "type": "power",
+          "first": "bob",
+          "value": 15
+        },
+        {
+          "category": "power",
+          "type": "wealth",
+          "first": "bob",
+          "value": 40
+        },
+        {
+          "category": "power",
+          "type": "popularity",
+          "first": "bob",
+          "value":  60
+        }
+      ]
+    }
+  ]
+    }

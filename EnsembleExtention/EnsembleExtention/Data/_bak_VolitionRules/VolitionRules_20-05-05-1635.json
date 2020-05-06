@@ -22,7 +22,7 @@
 				}
 			],
 			"origin": "VolitionRules",
-			"id": "volitionRules_1",
+			"id": "volitionRules_3",
 			"type": "volition"
 		},
 		{
@@ -45,7 +45,7 @@
 				}
 			],
 			"origin": "VolitionRules",
-			"id": "volitionRules_2",
+			"id": "volitionRules_4",
 			"type": "volition"
 		},
 		{
@@ -69,7 +69,7 @@
 				}
 			],
 			"origin": "VolitionRules",
-			"id": "volitionRules_3",
+			"id": "volitionRules_5",
 			"type": "volition"
 		},
 		{
@@ -93,7 +93,7 @@
 				}
 			],
 			"origin": "VolitionRules",
-			"id": "volitionRules_4",
+			"id": "volitionRules_6",
 			"type": "volition"
 		},
 		{
@@ -117,7 +117,7 @@
 				}
 			],
 			"origin": "VolitionRules",
-			"id": "volitionRules_5",
+			"id": "volitionRules_7",
 			"type": "volition"
 		},
 		{
@@ -141,7 +141,7 @@
 				}
 			],
 			"origin": "VolitionRules",
-			"id": "volitionRules_6",
+			"id": "volitionRules_8",
 			"type": "volition"
 		},
 		{
@@ -165,17 +165,18 @@
 				}
 			],
 			"origin": "VolitionRules",
-			"id": "volitionRules_7",
+			"id": "volitionRules_9",
 			"type": "volition"
 		},
 		{
 			"name": "The greediest will stop at nothing to get wealth",
 			"conditions": [
 				{
-					"category": "Anyone",
-					"type": "anyone",
+					"category": "Traits",
+					"type": "greed",
 					"first": "someone",
-					"value": true
+					"value": 9,
+					"operator": ">"
 				}
 			],
 			"effects": [
@@ -188,11 +189,11 @@
 				}
 			],
 			"origin": "VolitionRules",
-			"id": "volitionRules_8",
+			"id": "volitionRules_10",
 			"type": "volition"
 		},
 		{
-			"name": "New Volition Rule",
+			"name": "People ",
 			"conditions": [
 				{
 					"category": "Anyone",
@@ -211,7 +212,7 @@
 				}
 			],
 			"origin": "VolitionRules",
-			"id": "volitionRules_9",
+			"id": "volitionRules_11",
 			"type": "volition"
 		}
 	]
