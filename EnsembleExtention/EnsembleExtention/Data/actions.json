@@ -1,6 +1,62 @@
 {
   "fileName" : "Actions.json",
   "actions" : [
-    
+    {
+      "name": "Consolidate Power",
+      "intent": {
+        "category": "power",
+        "type": "power",
+        "intentType": true,
+        "first": "initiator"
+      },
+      "conditions": [],
+      "influenceRules": [],
+      "leadsTo": ["HinderRival"]
+    },
+    {
+      "name": "HinderRival",
+      "conditions": [
+        {
+          "category": "political relation",
+          "type": "rivals",
+          "first": "initiator",
+          "second": "target",
+          "operator": ">",
+          "value": 15
+        }
+      ],
+      "influenceRules": [],
+      "leadsTo": []
+    },
+    {
+      "name": "turn Ally against target",
+      "conditions": [
+        {
+          "category": "political relation",
+          "type": "allies",
+          "first": "target",
+          "second": "ally",
+          "operator": ">",
+          "value": 15
+        }
+      ],
+      "influenceRules": [
+        {
+          "name": "people are more likely to approach their friends to turn them against rivals",
+          "conditions": [
+            {
+              "category": "relation",
+              "type": "friend",
+              "first": "initiator",
+              "second": "ally",
+              "operator": ">",
+              "value": 25
+            }
+          ],
+          "weight": 10
+        }
+      ],
+      "leadsTo": ["turnAllyConvince"]
+    }
   ]
 }
