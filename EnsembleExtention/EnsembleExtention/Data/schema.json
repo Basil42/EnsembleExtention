@@ -62,18 +62,6 @@
 		},
 		{
 			"actionable": false,
-			"directionType": "reciprocal",
-			"isBoolean": true,
-			"cloneEachTimeStep": true,
-			"category": "Familial Relation",
-			"types": [
-				"close familiy",
-				"extended familiy"
-			],
-			"defaultValue": false
-		},
-		{
-			"actionable": false,
 			"directionType": "undirected",
 			"isBoolean": true,
 			"cloneEachTimeStep": true,
@@ -131,6 +119,18 @@
 			"defaultValue": 0,
 			"maxValue": 10,
 			"minValue": 0
+		},
+		{
+			"actionable": false,
+			"directionType": "reciprocal",
+			"isBoolean": true,
+			"cloneEachTimeStep": true,
+			"category": "Familial Relation",
+			"types": [
+				"close family",
+				"extended family"
+			],
+			"defaultValue": false
 		}
 	]
 }

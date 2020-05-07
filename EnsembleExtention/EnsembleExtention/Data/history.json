@@ -2,7 +2,6 @@
   "history": [
     {
       "pos": 0,
-      "comment": "Al traits ",
       "data": [
         {
           "category": "Traits",
@@ -56,14 +55,8 @@
           "category": "Traits",
           "type": "ethics",
           "first": "al",
-          "value":  -4
-        }
-      ]
-    },
-    {
-      "pos": 0,
-      "comment": "Bob traits",
-      "data": [
+          "value": -4
+        },
         {
           "category": "Traits",
           "type": "ambition",
@@ -122,7 +115,155 @@
           "category": "power",
           "type": "popularity",
           "first": "bob",
-          "value":  60
+          "value": 60
+        },
+        {
+          "category": "Traits",
+          "type": "ambition",
+          "first": "carla",
+          "value": 4
+        },
+        {
+          "category": "Traits",
+          "type": "honesty",
+          "first": "carla",
+          "value": 7
+        },
+        {
+          "category": "Traits",
+          "type": "greed",
+          "first": "carla",
+          "value": 2
+        },
+        {
+          "category": "Traits",
+          "type": "ethics",
+          "first": "carla",
+          "value": 5
+        },
+        {
+          "category": "Traits",
+          "type": "trust",
+          "first": "carla",
+          "value": 7
+        },
+        {
+          "category": "Traits",
+          "type": "likability",
+          "first": "carla",
+          "value": 7
+        },
+        {
+          "category": "Traits",
+          "type": "loyal",
+          "first": "carla",
+          "value": 7
+        },
+        {
+          "category": "power",
+          "type": "power",
+          "first": "carla",
+          "value": 55
+        },
+        {
+          "category": "power",
+          "type": "wealth",
+          "first": "carla",
+          "value": 26
+        },
+        {
+          "category": "power",
+          "type": "popularity",
+          "first": "carla",
+          "value": 40
+        },
+        {
+          "category": "Traits",
+          "type": "ambition",
+          "first": "diane",
+          "value": 5
+        },
+        {
+          "category": "Traits",
+          "type": "honesty",
+          "first": "diane",
+          "value": 3
+        },
+        {
+          "category": "Traits",
+          "type": "greed",
+          "first": "diane",
+          "value": 2
+        },
+        {
+          "category": "Traits",
+          "type": "ethics",
+          "first": "diane",
+          "value": 5
+        },
+        {
+          "category": "Traits",
+          "type": "trust",
+          "first": "diane",
+          "value": 2
+        },
+        {
+          "category": "Traits",
+          "type": "likability",
+          "first": "diane",
+          "value": 5
+        },
+        {
+          "category": "Traits",
+          "type": "loyal",
+          "first": "diane",
+          "value": 3
+        },
+        {
+          "category": "power",
+          "type": "power",
+          "first": "diane",
+          "value": 35
+        },
+        {
+          "category": "power",
+          "type": "wealth",
+          "first": "diane",
+          "value": 20
+        },
+        {
+          "category": "power",
+          "type": "popularity",
+          "first": "diane",
+          "value": 20
+        },
+        {
+          "category": "Familial Relation",
+          "type": "close family",
+          "first": "carla",
+          "second": "diane",
+          "value": true
+        },
+        {
+          "category": "relation",
+          "type": "friend",
+          "first": "carla",
+          "second": "diane",
+          "value": 70
+        },
+        {
+          "category": "relation",
+          "type": "friend",
+          "first": "diane",
+          "second": "carla",
+          "value": 80
+        },
+        {
+          "category": "relation",
+          "type": "close family",
+          "first": "carla",
+          "second": "Al",
+          "value": true
         }
       ]
     }
