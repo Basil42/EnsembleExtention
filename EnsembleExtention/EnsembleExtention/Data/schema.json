@@ -111,7 +111,7 @@
 				"rivals"
 			],
 			"defaultValue": 0,
-			"maxValue": 10,
+			"maxValue": 100,
 			"minValue": 0
 		},
 		{

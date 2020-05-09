@@ -53,13 +53,13 @@
               "value": 25
             }
           ],
-          "weight": 10
+          "weight": 50
         }
       ],
-      "leadsTo": [ "turnAllyConvince" ]
+      "leadsTo": [ "turnAllyConvince","turnAllyBribe" ]
     },
     {
-      "name": "turnAllyConvice",
+      "name": "turnAllyConvince",
       "conditions": [],
       "influenceRules": [
         {
@@ -70,16 +70,289 @@
               "type": "orator",
               "first": "initiator",
               "operator": ">",
+              "value": 3
+            }
+          ],
+          "weight": 50
+        }
+      ],
+      "leadsTo": [ "turnAllyConvinceSUCCESS", "turnAllyConvinceFAILURE" ]
+    },
+    {
+      "name": "turnAllyConvinceSUCCESS",
+      "conditions": [
+        {
+          "category": "relation",
+          "type": "friend",
+          "first": "ally",
+          "second": "target",
+          "operator": "<",
+          "value": "75"
+        },
+        {
+          "category": "Traits",
+          "type": "loyal",
+          "first": "ally",
+          "operator": "<",
+          "value": 10
+        }
+      ],
+      "influenceRules": [
+        {
+          "name": "People are more likely to be convinced by a friend",
+          "conditions": [
+            {
+              "category": "relation",
+              "type": "friend",
+              "first": "ally",
+              "second": "initiator",
+              "operator": ">",
               "value": 25
             }
           ],
-          "weight": 15
+          "weight": 1
+        },
+        {
+          "name": "Good orators are more likely to convince people to turn against their allies",
+          "conditions": [
+            {
+              "category": "Traits",
+              "type": "orator",
+              "first": "initiator",
+              "operator": ">",
+              "value": 3
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "name": "Great orators are more likely to convince people to turn against their allies",
+          "conditions": [
+            {
+              "category": "Traits",
+              "type": "orator",
+              "first": "initiator",
+              "operator": ">",
+              "value": 6
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "name": "people are more willing to turn against allies they don't like",
+          "conditions": [
+            {
+              "category": "relation",
+              "type": "enemy",
+              "first": "ally",
+              "second": "target",
+              "operator": ">",
+              "value": 25
+            }
+          ],
+          "weight": 1
         }
       ],
-      "leadsTo": [ "turnAllyConviceSUCCESS", "turnAllyConviceFAILURE" ]
+      "effects": [
+        {
+          "category": "political relation",
+          "type": "allies",
+          "first": "target",
+          "second": "ally",
+          "operator": "=",
+          "value": 0
+        },
+        {
+          "category": "political relation",
+          "type": "rivals",
+          "first": "target",
+          "second": "rivals",
+          "operator": "=",
+          "value": 15
+        },
+        {
+          "category": "political relation",
+          "type": "rivals",
+          "first": "initiator",
+          "second": "target",
+          "operator": "+",
+          "value": 15
+        }
+      ]
     },
     {
-
+      "name": "turnAllyConvinceFAILURE",
+      "conditions": [],
+      "influenceRules": [
+        {
+          "name": "People are unwilling to turn against their allies",
+          "conditions": [],
+          "weight": 2
+        },
+        {
+          "name": "people are unwilling to turn against a friend.",
+          "conditions": [
+            {
+              "category": "relation",
+              "type": "friend",
+              "first": "ally",
+              "second": "target",
+              "operator": ">",
+              "value": 25
+            }
+          ],
+          "weight": 2
+        },
+        {
+          "name": "people are very unwilling to turn against a good friend.",
+          "conditions": [
+            {
+              "category": "relation",
+              "type": "friend",
+              "first": "ally",
+              "second": "target",
+              "operator": ">",
+              "value": 50
+            }
+          ],
+          "weight": 2
+        },
+        {
+          "name": "people are unwilling to turn against a popular ally",
+          "conditions": [
+            {
+              "category": "power",
+              "type": "popularity",
+              "first": "target",
+              "operator": ">",
+              "value": 50
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "name": "loyal people are unwilling to turn against their allies",
+          "conditions": [
+            {
+              "category": "Traits",
+              "type": "loyal",
+              "first": "ally",
+              "operator": ">",
+              "value": 3
+            }
+          ],
+          "weight": 2
+        },
+        {
+          "name": "very loyal people are very unlikely to turn against an ally",
+          "conditions": [
+            {
+              "category": "Traits",
+              "type": "loyal",
+              "first": "ally",
+              "operator": ">",
+              "value": 6
+            }
+          ],
+          "weight": 2
+        },
+        {
+          "name": "people will be harder to convince if they don't trust the initiator",
+          "conditions": [
+            {
+              "category": "relation",
+              "type": "trust",
+              "first": "ally",
+              "second": "initiator",
+              "operator": "<",
+              "value": 4
+            }
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "category": "political relation",
+          "type": "rivals",
+          "first": "initiator",
+          "second": "target",
+          "operator": "+",
+          "value": 15
+        },
+        {
+          "category": "relation",
+          "type": "trust",
+          "first": "ally",
+          "second": "initiator",
+          "operator": "-",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "turnAllyBribe",
+      "condition": [
+        {
+          "category": "power",
+          "type": "wealth",
+          "first": "initiator",
+          "operator": ">",
+          "value": 25
+        }
+      ],
+      "influenceRules": [
+        {
+          "name": "Dishonest people are more likely to resort to bribes",
+          "conditions": [
+            {
+              "category": "Traits",
+              "type": "honesty",
+              "first": "initiator",
+              "operator": "<",
+              "value": 0
+            }
+          ],
+          "weight": 15
+        },
+        {
+          "name": "Honest people have a strong distaste for bribes",
+          "conditions": [
+            {
+              "category": "Traits",
+              "type": "honesty",
+              "first": "initiator",
+              "operator": ">",
+              "value": 5
+            }
+          ],
+          "weight": -30
+        },
+        {
+          "name": "Very rich people are more likely to offer bribes",
+          "conditions": [
+            {
+              "category": "power",
+              "type": "wealth",
+              "first": "initiator",
+              "operator": ">",
+              "value": 50
+            }
+          ],
+          "weight": 20
+        },
+        {
+          "name": "People are more tempted to bribe people with modest finances",
+          "conditions": {
+            "category": "power",
+            "type": "wealth",
+            "first": "ally",
+            "operator": "<",
+            "value": 15
+          },
+          "weight": 20
+        }
+      ],
+      "leadsTo" :  ["TurnAllyBribeSUCCESS","turnAllyBribeFAILURE"]
     }
   ]
 }
