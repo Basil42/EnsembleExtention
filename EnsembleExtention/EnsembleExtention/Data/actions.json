@@ -56,7 +56,30 @@
           "weight": 10
         }
       ],
-      "leadsTo": ["turnAllyConvince"]
+      "leadsTo": [ "turnAllyConvince" ]
+    },
+    {
+      "name": "turnAllyConvice",
+      "conditions": [],
+      "influenceRules": [
+        {
+          "name": "good orator are more likely to lean in their strengths.",
+          "conditions": [
+            {
+              "category": "Traits",
+              "type": "orator",
+              "first": "initiator",
+              "operator": ">",
+              "value": 25
+            }
+          ],
+          "weight": 15
+        }
+      ],
+      "leadsTo": [ "turnAllyConviceSUCCESS", "turnAllyConviceFAILURE" ]
+    },
+    {
+
     }
   ]
 }
