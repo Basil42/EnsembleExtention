@@ -11,7 +11,7 @@
       },
       "conditions": [],
       "influenceRules": [],
-      "leadsTo": ["HinderRival"]
+      "leadsTo": ["HinderRival","networking"]
     },
     {
       "name": "HinderRival",
@@ -46,7 +46,7 @@
           "conditions": [
             {
               "category": "relation",
-              "type": "friend",
+              "type": "enemy_friend",
               "first": "initiator",
               "second": "ally",
               "operator": ">",
@@ -83,7 +83,7 @@
       "conditions": [
         {
           "category": "relation",
-          "type": "friend",
+          "type": "enemy_friend",
           "first": "ally",
           "second": "target",
           "operator": "<",
@@ -103,7 +103,7 @@
           "conditions": [
             {
               "category": "relation",
-              "type": "friend",
+              "type": "enemy_friend",
               "first": "ally",
               "second": "initiator",
               "operator": ">",
@@ -139,15 +139,15 @@
           "weight": 1
         },
         {
-          "name": "people are more willing to turn against rivals_allies they don't like",
+          "name": "people are more willing to turn against allies they don't like",
           "conditions": [
             {
               "category": "relation",
-              "type": "enemy",
+              "type": "enemy_friend",
               "first": "ally",
               "second": "target",
-              "operator": ">",
-              "value": 25
+              "operator": "<",
+              "value": -25
             }
           ],
           "weight": 1
@@ -182,11 +182,11 @@
           "weight": 2
         },
         {
-          "name": "people are unwilling to turn against a friend.",
+          "name": "people are unwilling to turn against a enemy_friend.",
           "conditions": [
             {
               "category": "relation",
-              "type": "friend",
+              "type": "enemy_friend",
               "first": "ally",
               "second": "target",
               "operator": ">",
@@ -200,7 +200,7 @@
           "conditions": [
             {
               "category": "relation",
-              "type": "friend",
+              "type": "enemy_friend",
               "first": "ally",
               "second": "target",
               "operator": ">",
@@ -552,6 +552,29 @@
           "value": 10
         }
       ]
+    },
+    {
+      "name": "networking",
+      "conditions": [],
+      "influenceRules": [],
+      "leadsTo": [ "socialize", "ConsolidateAlliance" ]
+    },
+    {
+      "name": "socialize",
+      "conditions": [
+        {
+          "category": "relation",
+          "type" :  "Enemy_friend"
+        }
+      ],
+      "influenceRules": [
+        {
+          "name": "people are more likely to hang out with their friends",
+          "conditions": []
+        }
+      ],
+      "effects" :  []
+
     }
   ]
 }

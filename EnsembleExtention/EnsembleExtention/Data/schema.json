@@ -107,14 +107,13 @@
 			"cloneEachTimeStep": true,
 			"category": "relation",
 			"types": [
-				"enemy",
-				"friend",
+				"enemy_friend",
 				"favor",
 				"trust"
 			],
 			"defaultValue": 0,
 			"maxValue": 100,
-			"minValue": 0
+			"minValue": -100
 		},
 		{
 			"actionable": true,
