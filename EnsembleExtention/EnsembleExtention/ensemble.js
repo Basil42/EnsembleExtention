@@ -3831,13 +3831,11 @@ var evaluateActionInfluenceRules = function(action, bindingToUse){
  * @return {[Object]}            [The best (highest weighted) terminal action, with it's roles filled in with the best binding of characters]
  */
 var getBestTerminalFromActionList = function(actionList){
-	console.log("inside of getTerminalsFromActionList");
 	if (actionList.length <= 0) {
 		
 		//we shouldn't be getting in here with an empty actionList!
 		return undefined;
 	}
-	console.log("could evaluate actionList length.");
 	if(actionList[0].actions !== undefined && actionList[0].actions.length > 0){
 		//we are not at a terminal! Keep digging deeper!
 		//And because we are only concerned with THE BEST, and the actionList should already be sorted,
@@ -3885,7 +3883,6 @@ var getBestTerminalFromActionList = function(actionList){
  * @return {[Object]}                    [Returns the best, bound action for this particular initiator, responder, and cast.]
  */
 var getAction = function(initiator, responder, volition, cast, numActionsPerGroup){
-	console.log("inside getAction");
 	//console.log("This is the contents of the actionLibrary: " , actionLibrary);
 	if(numActionsPerGroup === undefined){
 		numActionsPerGroup = 1;

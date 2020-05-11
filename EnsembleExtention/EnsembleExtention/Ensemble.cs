@@ -21,7 +21,7 @@ namespace JintinterfaceTest
         JsValue Bind_RunTriggerRules;
         JsValue Bind_SetupNextTimeStep;
 
-        
+
         public Ensemble()
         {
             engine = new Jint.Engine();
@@ -36,23 +36,19 @@ namespace JintinterfaceTest
                 "../../Data/history.json");
             BindApi(engine);
 
-
-            var vol =CalculateVolitions(GetCharacters());
-
-
         }
 
-        
+
 
         private void BindApi(Engine engine)
         {
             Bind_CalculateVolition = engine.Execute(@"function BindCalculateVolition(cast){return ensemble.calculateVolition(cast);}").GetValue("BindCalculateVolition");
             Bind_GetAction = engine.Execute(@"function BindGetAction(initiator,respondant,calculatedVolitions,cast){return ensemble.getAction(initiator,respondant,calculatedVolitions,cast);}").GetValue("BindGetAction");
-            Bind_DoAction = engine.Execute(@"function BindDoAction(boundAction){ensemble.doAction(boundAction);}").GetValue("BindDoAction");
-            Bind_GetActions = engine.Execute(@"function BindGetActions(initiator,respondant,calculatedVolitions,cast,numIntent,numActionsPerIntent,numActionsPerGroup){ensemble.getActions(initiator,respondant,calculatedVolitions,cast,numIntent,numActionsPerIntent,numActionsPerGroup);}").GetValue("BindGetActions");
-            Bind_RunTriggerRules = engine.Execute(@"function BindRunTriggerRules(cast){ensemble.runTriggerRules(cast);}").GetValue("BindRunTriggerRules");
-            Bind_SetupNextTimeStep = engine.Execute(@"function BindSetupTimeStep(timestep){ensemble;setupNextTimeStep(timestep);}").GetValue("BindSetupTimeStep");
-            
+            Bind_DoAction = engine.Execute(@"function BindDoAction(boundAction){return ensemble.doAction(boundAction);}").GetValue("BindDoAction");
+            Bind_GetActions = engine.Execute(@"function BindGetActions(initiator,respondant,calculatedVolitions,cast,numIntent,numActionsPerIntent,numActionsPerGroup){return ensemble.getActions(initiator,respondant,calculatedVolitions,cast,numIntent,numActionsPerIntent,numActionsPerGroup);}").GetValue("BindGetActions");
+            Bind_RunTriggerRules = engine.Execute(@"function BindRunTriggerRules(cast){return ensemble.runTriggerRules(cast);}").GetValue("BindRunTriggerRules");
+            Bind_SetupNextTimeStep = engine.Execute(@"function BindSetupTimeStep(timestep){return ensemble.setupNextTimeStep(timestep);}").GetValue("BindSetupTimeStep");
+
         }
 
         private void defineConsole(Engine engine)
@@ -67,15 +63,15 @@ namespace JintinterfaceTest
             const string path = "../../ensemble.js";
 
             Console.WriteLine(File.Exists(path));
-                using (var reader = new StreamReader(path))
-                {
-                    var code = reader.ReadToEnd();
+            using (var reader = new StreamReader(path))
+            {
+                var code = reader.ReadToEnd();
 
-                    var result = engine.Execute(code).GetCompletionValue();
-                }
+                var result = engine.Execute(code).GetCompletionValue();
+            }
             engine.Execute(@"ensemble.init();");
         }
-        private void LoadFiles(Engine engine, string schema, string cast,string triggerRules,string volitionRules,string Actions,string history)
+        private void LoadFiles(Engine engine, string schema, string cast, string triggerRules, string volitionRules, string Actions, string history)
         {
             engine.Execute(@"
             function parse(JsonString){
@@ -87,20 +83,20 @@ namespace JintinterfaceTest
             if (File.Exists(schema))
             {
                 Console.WriteLine("schema File found.");
-                using(var reader = new StreamReader(schema))
+                using (var reader = new StreamReader(schema))
                 {
                     string jsonString = reader.ReadToEnd();
                     var jsonObj = parse.Invoke(jsonString);
                     engine.Execute(@"function loadSchema(jsonObj){ensemble.loadSocialStructure(jsonObj);}");
                     var loadSchema = engine.GetValue("loadSchema");
                     loadSchema.Invoke(jsonObj);
-                    
+
                 }
             }
             if (File.Exists(cast))
             {
                 Console.WriteLine("cast file found.");
-                using(var reader = new StreamReader(cast))
+                using (var reader = new StreamReader(cast))
                 {
                     string jsonString = reader.ReadToEnd();
                     var jsonObj = parse.Invoke(jsonString);
@@ -112,7 +108,7 @@ namespace JintinterfaceTest
             if (File.Exists(triggerRules))
             {
                 Console.WriteLine("rules file found.");
-                using(var reader = new StreamReader(triggerRules))
+                using (var reader = new StreamReader(triggerRules))
                 {
                     string jsonString = reader.ReadToEnd();
                     var jsonObj = parse.Invoke(jsonString);
@@ -148,7 +144,7 @@ namespace JintinterfaceTest
             if (File.Exists(history))
             {
                 Console.WriteLine("history file found.");
-                using(var reader = new StreamReader(history))
+                using (var reader = new StreamReader(history))
                 {
                     string jsonString = reader.ReadToEnd();
                     var jsonObj = parse.Invoke(jsonString);
@@ -171,7 +167,7 @@ namespace JintinterfaceTest
         {
             return Bind_CalculateVolition.Invoke(cast);
         }
-        public JsValue GetAction(JsValue initiator,JsValue respondant,JsValue calculatedVolitions,JsValue cast)//Always check that the result is not undefined before using it.
+        public JsValue GetAction(JsValue initiator, JsValue respondant, JsValue calculatedVolitions, JsValue cast)//Always check that the result is not undefined before using it.
         {
             return Bind_GetAction.Invoke(initiator, respondant, calculatedVolitions, cast);
         }
@@ -179,7 +175,7 @@ namespace JintinterfaceTest
         {
             return Bind_DoAction.Invoke(boundAction);
         }
-        public JsValue GetActions(JsValue initiator, JsValue respondant, JsValue calculatedVolitions, JsValue cast,int numIntent,int numActionsPerIntent,int numActionsperGroup)
+        public JsValue GetActions(JsValue initiator, JsValue respondant, JsValue calculatedVolitions, JsValue cast, int numIntent, int numActionsPerIntent, int numActionsperGroup)
         {
             return Bind_GetActions.Invoke(initiator, respondant, calculatedVolitions, cast, numIntent, numActionsPerIntent, numActionsperGroup);
         }
@@ -188,9 +184,9 @@ namespace JintinterfaceTest
             return Bind_RunTriggerRules.Invoke(cast);
         }
         //ignored set and get, as they are not useful if we can't manipulate the data at the C# level
-        public JsValue setupNextTimeStep(int timestep)
+        public JsValue setupNextTimeStep()
         {
-            return Bind_SetupNextTimeStep.Invoke(timestep);
+            return Bind_SetupNextTimeStep.Invoke();
         }
         public void DumpSocialRecord()
         {
