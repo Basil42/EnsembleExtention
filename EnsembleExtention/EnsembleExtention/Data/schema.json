@@ -102,20 +102,6 @@
 		},
 		{
 			"actionable": true,
-			"directionType": "reciprocal",
-			"isBoolean": false,
-			"cloneEachTimeStep": true,
-			"category": "political relation",
-			"types": [
-				"allies",
-				"rivals"
-			],
-			"defaultValue": 0,
-			"maxValue": 100,
-			"minValue": 0
-		},
-		{
-			"actionable": true,
 			"directionType": "directed",
 			"isBoolean": false,
 			"cloneEachTimeStep": true,
@@ -125,6 +111,19 @@
 				"friend",
 				"favor",
 				"trust"
+			],
+			"defaultValue": 0,
+			"maxValue": 100,
+			"minValue": 0
+		},
+		{
+			"actionable": true,
+			"directionType": "reciprocal",
+			"isBoolean": false,
+			"cloneEachTimeStep": true,
+			"category": "political relation",
+			"types": [
+				"rivals_allies"
 			],
 			"defaultValue": 0,
 			"maxValue": 100,

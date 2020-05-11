@@ -18,11 +18,11 @@
       "conditions": [
         {
           "category": "political relation",
-          "type": "rivals",
+          "type": "rivals_allies",
           "first": "initiator",
           "second": "target",
-          "operator": ">",
-          "value": 15
+          "operator": "<",
+          "value": -15
         }
       ],
       "influenceRules": [],
@@ -33,7 +33,7 @@
       "conditions": [
         {
           "category": "political relation",
-          "type": "allies",
+          "type": "rivals_allies",
           "first": "target",
           "second": "ally",
           "operator": ">",
@@ -139,7 +139,7 @@
           "weight": 1
         },
         {
-          "name": "people are more willing to turn against allies they don't like",
+          "name": "people are more willing to turn against rivals_allies they don't like",
           "conditions": [
             {
               "category": "relation",
@@ -156,27 +156,19 @@
       "effects": [
         {
           "category": "political relation",
-          "type": "allies",
+          "type": "rivals_allies",
           "first": "target",
           "second": "ally",
-          "operator": "=",
-          "value": 0
-        },
-        {
-          "category": "political relation",
-          "type": "rivals",
-          "first": "target",
-          "second": "rivals",
-          "operator": "=",
+          "operator": "-",
           "value": 15
         },
         {
           "category": "political relation",
-          "type": "rivals",
+          "type": "rivals_allies",
           "first": "initiator",
           "second": "target",
-          "operator": "+",
-          "value": 15
+          "operator": "-",
+          "value": 10
         }
       ]
     },
@@ -185,7 +177,7 @@
       "conditions": [],
       "influenceRules": [
         {
-          "name": "People are unwilling to turn against their allies",
+          "name": "People are unwilling to turn against their rivals_allies",
           "conditions": [],
           "weight": 2
         },
@@ -231,7 +223,7 @@
           "weight": 1
         },
         {
-          "name": "loyal people are unwilling to turn against their allies",
+          "name": "loyal people are unwilling to turn against their rivals_allies",
           "conditions": [
             {
               "category": "Traits",
@@ -273,11 +265,11 @@
       "effects": [
         {
           "category": "political relation",
-          "type": "rivals",
+          "type": "rivals_allies",
           "first": "initiator",
           "second": "target",
-          "operator": "+",
-          "value": 15
+          "operator": "-",
+          "value": 10
         },
         {
           "category": "relation",
@@ -352,7 +344,84 @@
           "weight": 20
         }
       ],
-      "leadsTo" :  ["TurnAllyBribeSUCCESS","turnAllyBribeFAILURE"]
+      "leadsTo": [ "turnAllyBribeSUCCESS", "turnAllyBribeFAILURE" ]
+    },
+    {
+      "name": "turnAllyBribeSUCCESS",
+      "condition" : [],
+      "influenceRules": [
+        {
+          "name": "Greedy people are more likely to be tempted by bribes",
+          "conditions": [
+            {
+              "category": "Traits",
+              "type": "greed",
+              "first": "ally",
+              "operator": ">",
+              "value": 3
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "name": "Very greedy people are very likely to be tempted by bribes",
+          "conditions": [
+            {
+              "category": "Traits",
+              "type": "greed",
+              "first": "ally",
+              "operator": ">",
+              "value": 6
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "name": "financialy precarious people are more likely to fall for bribes",
+          "conditions": [
+            {
+              "category": "Traits",
+              "type": "greed",
+              "first": "ally",
+              "operator": ">",
+              "value": 3
+            }
+          ],
+          "weight": 1
+        }
+      ],
+      "effects": [
+        {
+          "category": "power",
+          "type": "wealth",
+          "first": "initiator",
+          "operator": "-",
+          "value": 10
+        },
+        {
+          "category": "power",
+          "type": "wealth",
+          "first": "ally",
+          "operator": "+",
+          "value": 10
+        },
+        {
+          "category": "political relation",
+          "type": "rivals_allies",
+          "first": "target",
+          "second": "ally",
+          "operator": "=",
+          "value": 0
+        },
+        {
+          "category": "political relation",
+          "type": "rivals_allies",
+          "first": "target",
+          "second": "ally",
+          "operator": "=",
+          "value": 10
+        }
+      ]
     }
   ]
 }
