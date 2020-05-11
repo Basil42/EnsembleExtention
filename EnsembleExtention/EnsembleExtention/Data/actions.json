@@ -348,7 +348,7 @@
     },
     {
       "name": "turnAllyBribeSUCCESS",
-      "condition" : [],
+      "condition": [],
       "influenceRules": [
         {
           "name": "Greedy people are more likely to be tempted by bribes",
@@ -388,6 +388,19 @@
             }
           ],
           "weight": 1
+        },
+        {
+          "name": "dishonest people are more likely to accept bribes",
+          "conditions": [
+            {
+              "category": "Traits",
+              "type": "honesty",
+              "first ": "ally",
+              "operator": "<",
+              "value": -3
+            }
+          ],
+          "weight" : 1
         }
       ],
       "effects": [
@@ -410,15 +423,132 @@
           "type": "rivals_allies",
           "first": "target",
           "second": "ally",
-          "operator": "=",
-          "value": 0
+          "operator": "-",
+          "value": 15
+        },
+        {
+          "category": "politcal relation",
+          "type": "rivals_allies",
+          "first": "initiator",
+          "second": "ally",
+          "operator": "+",
+          "value": 5
         },
         {
           "category": "political relation",
           "type": "rivals_allies",
           "first": "target",
-          "second": "ally",
-          "operator": "=",
+          "second": "initiator",
+          "operator": "-",
+          "value" : 10
+        }
+      ]
+    },
+    {
+      "name": "turnAllyBribeFAILURE",
+      "conditions": [],
+      "influenceRules": [
+        {
+          "name": "Loyal people are unlikely to turn against their allies",
+          "conditions": [
+            {
+              "category": "Traits",
+              "type": "loyal",
+              "first": "ally",
+              "operator": ">",
+              "value": 3
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "name": "very loyal people are very unlikely to turn against their allies",
+          "conditions": [
+            {
+              "category": "Traits",
+              "type": "loyal",
+              "first": "ally",
+              "operator": ">",
+              "value": 6
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "name": "very rich people are less likely to be moved by bribes",
+          "conditions": [
+            {
+              "category": "power",
+              "type": "wealth",
+              "first": "ally",
+              "operator": ">",
+              "value": 6
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "name": "crazy rich people are even less likely to be moved by bribes",
+          "conditions": [
+            {
+              "category": "power",
+              "type": "wealth",
+              "first": "ally",
+              "operator": ">",
+              "value": 6
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "name": "honest people are unlikely to accept bribes",
+          "conditions": [
+            {
+              "category": "Traits",
+              "type": "honesty",
+              "first": "ally",
+              "operator": ">",
+              "value": 3
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "name": " very honest people are even less likely to accept bribes",
+          "conditions": [
+            {
+              "category": "Traits",
+              "type": "honesty",
+              "first": "ally",
+              "operator": ">",
+              "value": 1
+            }
+          ],
+          "weight": 1
+        }
+
+      ],
+      "effects": [
+        {
+          "category": "power",
+          "type": "wealth",
+          "first": "initiator",
+          "operator": "-",
+          "value": 10
+        },
+        {
+          "category": "power",
+          "type": "wealth",
+          "first": "ally",
+          "operator": "+",
+          "value": 10
+        },
+        {
+          "category": "political relation",
+          "type": "rivals_allies",
+          "first": "target",
+          "second": "initiator",
+          "operator": "-",
           "value": 10
         }
       ]
