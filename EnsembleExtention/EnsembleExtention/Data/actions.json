@@ -564,16 +564,38 @@
       "conditions": [
         {
           "category": "relation",
-          "type" :  "Enemy_friend"
+          "type": "Enemy_friend",
+          "first": "initiator",
+          "second": "friend",
+          "operator": ">",
+          "value" :  0
         }
       ],
       "influenceRules": [
         {
-          "name": "people are more likely to hang out with their friends",
-          "conditions": []
+          "name": "people are more likely to hang out with their good friends",
+          "conditions": [
+            {
+              "category": "relation",
+              "type": "Enemy_friend",
+              "first": "initiator",
+              "second": "friend",
+              "operator": ">",
+              "value": 25
+            }
+          ],
+          "weight" :  5
         }
       ],
-      "effects" :  []
+      "effects": [
+        {
+          "category": "socialRecordLabel",
+          "type": "socialized_with",
+          "first ": "initiator",
+          "second": "friend",
+          "value":  true
+        }
+      ]
 
     }
   ]

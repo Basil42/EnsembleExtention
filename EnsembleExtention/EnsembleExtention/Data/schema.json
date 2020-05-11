@@ -57,19 +57,6 @@
 		},
 		{
 			"actionable": false,
-			"directionType": "directed",
-			"isBoolean": true,
-			"cloneEachTimeStep": true,
-			"duration": 1,
-			"category": "socialRecordLabel",
-			"types": [
-				"slandered me",
-				"exposed me"
-			],
-			"defaultValue": false
-		},
-		{
-			"actionable": false,
 			"directionType": "undirected",
 			"isBoolean": false,
 			"cloneEachTimeStep": true,
@@ -127,6 +114,20 @@
 			"defaultValue": 0,
 			"maxValue": 100,
 			"minValue": 0
+		},
+		{
+			"actionable": false,
+			"directionType": "directed",
+			"isBoolean": true,
+			"cloneEachTimeStep": true,
+			"duration": 1,
+			"category": "socialRecordLabel",
+			"types": [
+				"slandered me",
+				"exposed me",
+				"socialized_with"
+			],
+			"defaultValue": false
 		}
 	]
 }
