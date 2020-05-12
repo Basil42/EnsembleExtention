@@ -7,7 +7,7 @@
 			"conditions": [
 				{
 					"category": "relation",
-					"type": "friend",
+					"type": "enemy_friend",
 					"first": "someone",
 					"value": 50,
 					"operator": ">",
@@ -40,10 +40,10 @@
 			"conditions": [
 				{
 					"category": "relation",
-					"type": "enemy",
+					"type": "enemy_friend",
 					"first": "someone",
-					"value": 0,
-					"operator": ">",
+					"value": -15,
+					"operator": "<",
 					"second": "other"
 				},
 				{
