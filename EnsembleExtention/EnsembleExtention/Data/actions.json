@@ -557,7 +557,7 @@
       "name": "networking",
       "conditions": [],
       "influenceRules": [],
-      "leadsTo": [ "socialize", "ConsolidateAlliance" ]
+      "leadsTo": [ "socialize", "ConsolidateAlliance", "Seek Alliance" ]
     },
     {
       "name": "socialize",
@@ -568,7 +568,7 @@
           "first": "initiator",
           "second": "friend",
           "operator": ">",
-          "value" :  0
+          "value": 0
         }
       ],
       "influenceRules": [
@@ -584,7 +584,7 @@
               "value": 25
             }
           ],
-          "weight" :  5
+          "weight": 5
         }
       ],
       "effects": [
@@ -593,10 +593,240 @@
           "type": "socialized_with",
           "first ": "initiator",
           "second": "friend",
-          "value":  true
+          "value": true
         }
       ]
 
+    },
+    {
+      "name": "ConsolidateAlliance",
+      "conditions": [
+        {
+          "category": "political relation",
+          "type": "rivals_allies",
+          "first": "initiator",
+          "second": "ally",
+          "operator": ">",
+          "value": 15
+        },
+        {
+          "category": "political relation",
+          "type": "rivals_allies",
+          "first": "initiator",
+          "second": "ally",
+          "operator": "<",
+          "value": 85
+        }
+      ],
+      "influenceRules": [
+        {
+          "name": "people want to maintain strong alliances",
+          "conditions": [
+            {
+
+              "category": "political relation",
+              "type": "rivals_allies",
+              "first": "initiator",
+              "second": "ally",
+              "operator": ">",
+              "value": 50
+            }
+          ],
+          "weight": 2
+        }
+      ],
+      "effects": [
+        {
+          "category": "political relation",
+          "type": "rivals_allies",
+          "first": "initiator",
+          "second": "ally",
+          "operator": "+",
+          "value": 15
+        }
+      ]
+    },
+    {
+      "name": "Seek Alliance",
+      "conditions": [
+        {
+          "category": "political relation",
+          "type": "rivals_allies",
+          "first": "initiator",
+          "second": "ally",
+          "operator": ">",
+          "value": -10
+        }
+      ],
+      "influenceRules": [
+        {
+          "name": "People are likely to ally with their friends",
+          "conditions": [
+            {
+              "category": "political relation",
+              "type": "enemy_friend",
+              "first": "initiator",
+              "second": "ally",
+              "operator": ">",
+              "value": 25
+            }
+          ],
+          "weight": 5
+        }
+      ],
+      "leadsTo": [ "AllianceAccept", "AllianceRefuse" ]
+    },
+    {
+      "name": "AllianceAccept",
+      "conditions": [],
+      "influenceRules": [
+        {
+          "name": "people are more likely to accept alliance offers from their friends",
+          "conditions": [
+            {
+              "category": "political relation",
+              "type": "enemy_friends",
+              "first": "ally",
+              "second": "initiator",
+              "operator": ">",
+              "value": 25
+            }
+          ],
+          "weight": 2
+        },
+        {
+          "name": "people are more likely to accept alliance offers from their good friends",
+          "conditions": [
+            {
+              "category": "political relation",
+              "type": "enemy_friends",
+              "first": "ally",
+              "second": "initiator",
+              "operator": ">",
+              "value": 50
+            }
+          ],
+          "weight": 2
+        },
+        {
+          "name": "people are likely to accept alliance offer from major powers",
+          "conditions": [
+            {
+              "category": "power",
+              "type": "power",
+              "first": "initiator",
+              "operator": ">",
+              "value": 75
+            }
+          ],
+          "weight": 2
+        },
+        {
+          "name": "people are likely to accept alliance offer from more powerful people than them",
+          "conditions": [
+            {
+              "category": "power",
+              "type": "power",
+              "first": "initator",
+              "operator": ">",
+              "value": 50
+            },
+            {
+              "category": "power",
+              "type": "power",
+              "first": "ally",
+              "operator": "<",
+              "value": 25
+            }
+          ],
+          "weight": 2
+        }
+      ],
+      "effects": [
+        {
+          "category": "political relation",
+          "type": "rivals_allies",
+          "first": "initiator",
+          "second": "ally",
+          "operator": "=",
+          "value": 16
+        }
+      ]
+    },
+    {
+      "name": "AllianceRefuse",
+      "conditions": [],
+      "influenceRules": [
+        {
+          "name": "people are unwilling to ally with their enemies",
+          "conditions": [
+            {
+              "category": "relation",
+              "type": "enemy_friend",
+              "first": "ally",
+              "second": "initiator",
+              "operator": "<",
+              "value": -25
+            }
+          ],
+          "weight": 2
+        },
+        {
+          "name": "people are unwilling to ally with their bitter enemies",
+          "conditions": [
+            {
+              "category": "relation",
+              "type": "enemy_friend",
+              "first": "ally",
+              "second": "initiator",
+              "operator": "<",
+              "value": -50
+            }
+          ],
+          "weight": 2
+        },
+        {
+          "name": "powerful people are unlikely to accept alliance offer from minor powers",
+          "conditions": [
+            {
+              "category": "power",
+              "type": "power",
+              "first": "ally",
+              "operator": ">",
+              "value": 50
+            },
+            {
+              "category": "power",
+              "type": "power",
+              "first": "initiator",
+              "operator": "<",
+              "value": 25
+            }
+          ],
+          "weight": 2
+        },
+        {
+          "name": "very powerful people are unlikely to accept alliance offer from minor powers",
+          "conditions": [
+            {
+              "category": "power",
+              "type": "power",
+              "first": "ally",
+              "operator": ">",
+              "value": 75
+            },
+            {
+              "category": "power",
+              "type": "power",
+              "first": "initiator",
+              "operator": "<",
+              "value": 50
+            }
+          ],
+          "weight": 2
+        }
+      ],
+      "effects": []
     }
   ]
 }
