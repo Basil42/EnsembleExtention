@@ -564,7 +564,7 @@
       "conditions": [
         {
           "category": "relation",
-          "type": "Enemy_friend",
+          "type": "enemy_friend",
           "first": "initiator",
           "second": "friend",
           "operator": ">",
@@ -577,7 +577,7 @@
           "conditions": [
             {
               "category": "relation",
-              "type": "Enemy_friend",
+              "type": "enemy_friend",
               "first": "initiator",
               "second": "friend",
               "operator": ">",
@@ -591,12 +591,19 @@
         {
           "category": "socialRecordLabel",
           "type": "socialized_with",
-          "first ": "initiator",
+          "first": "initiator",
           "second": "friend",
           "value": true
+        },
+        {
+          "category": "relation",
+          "type": "enemy_friend",
+          "first": "friend",
+          "second": "initiator",
+          "operator": "+",
+          "value": 5
         }
       ]
-
     },
     {
       "name": "ConsolidateAlliance",

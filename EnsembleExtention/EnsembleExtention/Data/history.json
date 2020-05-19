@@ -246,14 +246,14 @@
         },
         {
           "category": "relation",
-          "type": "friend",
+          "type": "enemy_friend",
           "first": "carla",
           "second": "diane",
           "value": 70
         },
         {
           "category": "relation",
-          "type": "friend",
+          "type": "enemy_friend",
           "first": "diane",
           "second": "carla",
           "value": 80
