@@ -33,18 +33,30 @@ namespace JintinterfaceTest
                 Console.WriteLine("\n\nRunning timestep: " + ensemble.setupNextTimeStep());
                 var change = ensemble.runTriggerRules(characters);
                 PrintTriggerEffects(change);
-
                 var vols = ensemble.CalculateVolitions();
+
 
                 foreach (var initiator in characters.GetOwnProperties().Where(p => p.Key != "length"))
                 {
+                    
                     Console.WriteLine("\nPicking action for: " + initiator.Value.Value);
                     List<JsValue> actions = new List<JsValue>();
                     foreach (var target in characters.GetOwnProperties().Where(p => p.Key != "length"))
                     {
                         Console.Write("Towards " + target.Value.Value + ": ");
 
-                        var action = ensemble.GetAction(initiator.Value.Value, target.Value.Value, vols, ensemble.GetCharacters());
+                        var action = ensemble.GetAction(initiator.Value.Value, target.Value.Value, vols, ensemble.GetCharacters(),5);
+                        if(initiator.Value.Value.AsString() ==  "bob" && target.Value.Value.AsString() == "bob")
+                        {
+                            var bobActions = ensemble.GetActions(initiator.Value.Value, target.Value.Value, vols, characters, 1, 2, 2).AsArray();
+                            Console.WriteLine("bob considered " + bobActions.GetLength() + " actions:");
+                            for(int i =0; i < bobActions.GetLength(); i++)
+                            {
+                                var bobaction = bobActions.Get(i.ToString()).AsObject();
+                                Console.WriteLine(bobaction.Get("name").AsString() + " with weight of" + bobaction.Get("weight").AsNumber());
+                            }
+
+                        }
                         Console.WriteLine(action.IsUndefined() ? action.ToString() : action.AsObject().GetProperty("name").Value + " with " + action.AsObject().GetProperty("weight").Value);
                         if (!action.IsUndefined())
                         {
@@ -55,6 +67,7 @@ namespace JintinterfaceTest
                     if (actions.Count > 0)
                     {
                         ensemble.DoAction(actions[0]);
+                        vols = ensemble.CalculateVolitions();
                     }
                 }
 

@@ -257,13 +257,6 @@
           "first": "diane",
           "second": "carla",
           "value": 80
-        },
-        {
-          "category": "relation",
-          "type": "close family",
-          "first": "carla",
-          "second": "Al",
-          "value": true
         }
       ]
     }

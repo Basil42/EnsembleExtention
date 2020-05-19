@@ -43,7 +43,7 @@ namespace JintinterfaceTest
         private void BindApi(Engine engine)
         {
             Bind_CalculateVolition = engine.Execute(@"function BindCalculateVolition(cast){return ensemble.calculateVolition(cast);}").GetValue("BindCalculateVolition");
-            Bind_GetAction = engine.Execute(@"function BindGetAction(initiator,respondant,calculatedVolitions,cast){return ensemble.getAction(initiator,respondant,calculatedVolitions,cast);}").GetValue("BindGetAction");
+            Bind_GetAction = engine.Execute(@"function BindGetAction(initiator,respondant,calculatedVolitions,cast,numberOfTerminals){return ensemble.getAction(initiator,respondant,calculatedVolitions,cast, numberOfTerminals);}").GetValue("BindGetAction");
             Bind_DoAction = engine.Execute(@"function BindDoAction(boundAction){return ensemble.doAction(boundAction);}").GetValue("BindDoAction");
             Bind_GetActions = engine.Execute(@"function BindGetActions(initiator,respondant,calculatedVolitions,cast,numIntent,numActionsPerIntent,numActionsPerGroup){return ensemble.getActions(initiator,respondant,calculatedVolitions,cast,numIntent,numActionsPerIntent,numActionsPerGroup);}").GetValue("BindGetActions");
             Bind_RunTriggerRules = engine.Execute(@"function BindRunTriggerRules(cast){return ensemble.runTriggerRules(cast);}").GetValue("BindRunTriggerRules");
@@ -167,9 +167,9 @@ namespace JintinterfaceTest
         {
             return Bind_CalculateVolition.Invoke(cast);
         }
-        public JsValue GetAction(JsValue initiator, JsValue respondant, JsValue calculatedVolitions, JsValue cast)//Always check that the result is not undefined before using it.
+        public JsValue GetAction(JsValue initiator, JsValue respondant, JsValue calculatedVolitions, JsValue cast,int numberOfTerminals)//Always check that the result is not undefined before using it.
         {
-            return Bind_GetAction.Invoke(initiator, respondant, calculatedVolitions, cast);
+            return Bind_GetAction.Invoke(initiator, respondant, calculatedVolitions, cast,numberOfTerminals);
         }
         public JsValue DoAction(JsValue boundAction)
         {
